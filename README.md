@@ -1,1 +1,1 @@
-# rock-paper-scissors
+Work in progress of The Odin Project's Rock Paper Scissors project.
