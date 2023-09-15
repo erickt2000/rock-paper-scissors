@@ -1,3 +1,11 @@
-const options = ["Rock", "Paper", "Scissors"]; 
-let randomChoice = options[Math.floor(Math.random() * options.length)];
+const options = ["Rock", "Paper", "Scissors"];
+
+function getComputerChoice() {
+    return  options[Math.floor(Math.random() * options.length)];
+}
+
+console.log(getComputerChoice()); // Working as intended
+
+
+
 
