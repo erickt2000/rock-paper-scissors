@@ -7,8 +7,6 @@ function getComputerChoice() {
 
 console.log(getComputerChoice()); // Working as intended
 
-function game() {}
-
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "Rock" && computerSelection === "Scissors" 
     || playerSelection === "Paper" && computerSelection === "Rock"
@@ -23,6 +21,15 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "Rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    console.log("Welcome!");
+    
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = "Rock";
+        const computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection,computerSelection));
+    }
+}
+
+game();
