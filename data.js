@@ -7,11 +7,13 @@ function getComputerChoice() {
 
 console.log(getComputerChoice()); // Working as intended
 
+function game() {}
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "Rock" && computerSelection === "Scissors" 
     || playerSelection === "Paper" && computerSelection === "Rock"
     || playerSelection === "Scissors" && computerSelection === "Paper") {
-        return "You Win!"
+        return `You win! ${playerSelection} beats ${computerSelection}`
     } else if (playerSelection === "Rock" && computerSelection === "Paper"
     || playerSelection === "Paper" && computerSelection === "Scissors"
     || playerSelection === "Scissors" && computerSelection === "Rock") {
@@ -21,4 +23,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-getComputerChoice();
+const playerSelection = "Rock";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
