@@ -21,9 +21,12 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    console.log("Welcome!");
+function playerChoice () {
+
     
+}
+
+function game() {    
     for (let i = 0; i < 5; i++) {
         const playerSelection = "Rock";
         const computerSelection = getComputerChoice();
