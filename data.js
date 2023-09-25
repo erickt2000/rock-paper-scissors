@@ -1,38 +1,49 @@
-const options = ["Rock", "Paper", "Scissors"];
+const options = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
     const randomChoice = options[Math.floor(Math.random() * options.length)];
     return randomChoice;
 }
 
-console.log(getComputerChoice()); // Working as intended
-
+function game() {
+    playRound();
+}
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === "Rock" && computerSelection === "Scissors" 
-    || playerSelection === "Paper" && computerSelection === "Rock"
-    || playerSelection === "Scissors" && computerSelection === "Paper") {
+    playerSelection = playerChoice();
+    computerSelection = getComputerChoice();
+
+    if (playerSelection === "rock" && computerSelection === "scissors" 
+    || playerSelection === "paper" && computerSelection === "rock"
+    || playerSelection === "scissors" && computerSelection === "paper") {
         return `You win! ${playerSelection} beats ${computerSelection}`
-    } else if (playerSelection === "Rock" && computerSelection === "Paper"
-    || playerSelection === "Paper" && computerSelection === "Scissors"
-    || playerSelection === "Scissors" && computerSelection === "Rock") {
+    } else if (playerSelection === "rock" && computerSelection === "paper"
+    || playerSelection === "Paper" && computerSelection === "scissors"
+    || playerSelection === "scissors" && computerSelection === "rock") {
         return `You lost! ${computerSelection} beats ${playerSelection}`
     } else {
-        return "It's a tie!"
+        return `It's a tie! You both have ${playerSelection}`
     }
 }
 
-function playerChoice () {
-
-    
-}
-
-function game() {    
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = "Rock";
-        const computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-        console.log(playRound(playerSelection,computerSelection));
+function playerChoice() {
+    let input = prompt("Type Rock, Paper, or Scissors");
+    while (input == null) {
+        input = prompt("Type Rock, Paper, or Scissors");
     }
+    input = input.toLowerCase();
+    let check = validateInput(input);
+    if (check == true) {
+        console.log(input);
+    }
+    //console.log(input);
+
 }
 
-game();
+function validateInput(choice) {
+    if (options.includes(choice)) {
+        return true
+    }
+    return false;
+}
+
+game(); 
