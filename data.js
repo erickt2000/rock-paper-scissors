@@ -1,4 +1,6 @@
 const options = ["rock", "paper", "scissors"];
+playerSelection = playerChoice();
+computerSelection = getComputerChoice();
 
 function getComputerChoice() {
     const randomChoice = options[Math.floor(Math.random() * options.length)];
@@ -9,8 +11,7 @@ function game() {
     playRound();
 }
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerChoice();
-    computerSelection = getComputerChoice();
+    
 
     if (playerSelection === "rock" && computerSelection === "scissors" 
     || playerSelection === "paper" && computerSelection === "rock"
@@ -28,22 +29,21 @@ function playRound(playerSelection, computerSelection) {
 function playerChoice() {
     let input = prompt("Type Rock, Paper, or Scissors");
     while (input == null) {
-        input = prompt("Type Rock, Paper, or Scissors");
+        return input;
     }
     input = input.toLowerCase();
     let check = validateInput(input);
-    if (check == true) {
-        console.log(input);
+    while (check == false) {
+        input = prompt("Please enter with correct spelling");
+        input = input.toLowerCase();
+        check = validateInput(input);
     }
-    //console.log(input);
+    console.log(input);
 
 }
 
 function validateInput(choice) {
-    if (options.includes(choice)) {
-        return true
-    }
-    return false;
+    return options.includes(choice); 
 }
 
 game(); 
