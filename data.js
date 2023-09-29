@@ -1,4 +1,5 @@
 const options = ["rock", "paper", "scissors"];
+const winners = [];
 
 function getComputerChoice() {
     const randomChoice = options[Math.floor(Math.random() * options.length)];
@@ -6,17 +7,18 @@ function getComputerChoice() {
 }
 
 function game() {
-    for(let i = 0; i <=5; i++) {
+    for(let i = 1; i <=5; i++) {
         playRound();
     }
+    logWins();
 }
 
 function playRound() {
     const playerSelection = playerChoice();
     const computerSelection = getComputerChoice();
-    console.log(computerSelection);
     const winner = checkWinner(playerSelection, computerSelection);
     console.log(winner);
+    winners.push(winner);
 }
 
 
@@ -43,6 +45,7 @@ function validateInput(choice) {
 }
 
 function checkWinner(playerSelection, computerSelection) {
+    console.log(playerSelection, computerSelection);
     if (playerSelection === computerSelection) {
         return "Tie";
     } else if ((playerSelection === "rock" && computerSelection === "scissors" 
@@ -52,6 +55,10 @@ function checkWinner(playerSelection, computerSelection) {
     } else {
         return "Computer";
     }
+}
+
+function logWins() {
+    console.log(winners);
 }
 
 game(); 
