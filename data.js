@@ -6,12 +6,12 @@ function getComputerChoice() {
     return randomChoice;
 }
 
-function game() {
+/* function game() {
     for(let i = 1; i <=5; i++) {
         playRound(i);
     }
     logWins();
-}
+} */
 
 function playRound(round) {
     const playerSelection = playerChoice();
